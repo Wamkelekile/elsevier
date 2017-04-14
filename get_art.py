@@ -34,7 +34,6 @@ def walk_through_json(text_json, file_to_save):
             file_to_save[i] = text_json[i]
 
 
-
 def pull_data(count=200, start=0, subj=423):
     source_url = "http://api.elsevier.com/content/search/scidir"
     token, key = get_token()
@@ -88,14 +87,14 @@ def main():
     whole_counter = 0
 # got , 420, 421, 422, 423, 424, 418, 419 (~400 штук)
 # got 425, 426, 427, 126,135,199, 11
-    subj = []
+    subj = [401, 402, 403, 404, 405,406,407,408,409,410,411]
     for s in subj:
         start = 0
         count = 200
         while pull_data(count=count, start=start, subj=s) > count:
             start += count
         whole_counter += count
-            print('%d proceed' % start)
+        print('%d proceed' % start)
     print("%d articles got" % whole_counter)
 
 
