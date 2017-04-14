@@ -34,6 +34,7 @@ def walk_through_json(text_json, file_to_save):
             file_to_save[i] = text_json[i]
 
 
+
 def pull_data(count=200, start=0, subj=423):
     source_url = "http://api.elsevier.com/content/search/scidir"
     token, key = get_token()
@@ -54,9 +55,9 @@ def pull_data(count=200, start=0, subj=423):
     else:
         print('search failed')
     try:
-    	art_count = int(resp_affilated_to_some_data.json()['search-results']['opensearch:totalResults']) - start
+        art_count = int(resp_affilated_to_some_data.json()['search-results']['opensearch:totalResults']) - start
     except:
-	return 10
+        return 10
     for num, res in enumerate(resp_affilated_to_some_data.json()['search-results']['entry']):
         if (num + 1) % 100 == 0:
             print('%d articles got' % num)
@@ -65,17 +66,17 @@ def pull_data(count=200, start=0, subj=423):
             time.sleep(60)
             # print('WOKE UP!')
         link = res['link'][0]['@href']
-	try:
-            full_text_resp = requests.get(link, headers=headers)
-	except:
-	    continue
+    try:
+        full_text_resp = requests.get(link, headers=headers)
+    except:
+        continue
 #         text_json = full_text_resp.json()
-        formatted_data = {}
-	try:
-            walk_through_json(full_text_resp.json(), formatted_data)
-	except:
-	    print('parsing error')
-	    continue
+    formatted_data = {}
+    try:
+        walk_through_json(full_text_resp.json(), formatted_data)
+    except:
+        print('parsing error')
+        continue
         formatted_data.pop('$', None)
 #         pprint(formatted_data)
         articles.insert(formatted_data)
@@ -93,7 +94,7 @@ def main():
         count = 200
         while pull_data(count=count, start=start, subj=s) > count:
             start += count
-	    whole_counter += count
+        whole_counter += count
             print('%d proceed' % start)
     print("%d articles got" % whole_counter)
 
