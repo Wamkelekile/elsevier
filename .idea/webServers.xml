@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d1c52981-b9b3-4938-b579-8267fa89564f" name="zeusHSE" url="http://zeus2.hse.ru">
+        <fileTransfer host="zeus2.hse.ru" port="22" accessType="SFTP" password="dfc3dfc6dfc5dfc7dfc5dfdcdf98df9adf9bdf9d" username="ilomov">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
