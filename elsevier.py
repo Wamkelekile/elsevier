@@ -213,7 +213,7 @@ class ElsevierAPI():
             print(resp_affilated_to_some_data.json()['abstracts-retrieval-response']['references'].keys())
             # print(resp_affilated_to_some_data.json()['abstracts-retrieval-response'].keys())
             # WE LOSE KEY REFERENCE!!!
-            # self.print_references(resp_affilated_to_some_data.json()['abstracts-retrieval-response']['references']['reference'])
+            self.print_references(resp_affilated_to_some_data.json()['abstracts-retrieval-response']['references']['reference'])
         else:
             print('Incorrect option value')
 
